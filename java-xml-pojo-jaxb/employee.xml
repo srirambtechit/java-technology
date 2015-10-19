@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee>
+	<active>true</active>
+	<dob>2015-10-19T15:17:23.972+05:30</dob>
+	<doj>2015-10-19T15:17:23.972+05:30</doj>
+	<id>1000</id>
+	<name>Ganesh</name>
+	<salary>5000.25</salary>
+</employee>
