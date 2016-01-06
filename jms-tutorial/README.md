@@ -24,19 +24,12 @@
 - Publisher-Subscriber approach  - One client send message to multiple clients
 
 <h3>JMS APIs</h3>
-
 <b>Administered Objects:<b> Destinations and connection factories are referred as administered objects.These are not usually maintaining by program . These objects will be bound to JNDI  name space . Clients can access these administered object using JNDI look up.
-
 <b>Connection:</b> It is a virtual connection with JMS provider.
-
 <b>Session:</b> It is a single threaded  context for producing and consuming messages.
-
 <b>Message Producer:</b> It is created from a session and is using to send messages to destinations.
-
 <b>Message Consumers:</b> It is also created from a session and is using to receive messages from destination.
-
 <b>Message Selector:</b> To filter the messages received.
-
 <b>Message:</b> Message objects are sending in JMS. A JMS message has 3 parts
 
 	a)header:- It contains a number of  predefined fields using for proper delivery and routing.
