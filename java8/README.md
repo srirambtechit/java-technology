@@ -69,7 +69,7 @@
        
      - A constructor reference
        example:
-       <b>Supplier<List<String>> listOfString = List::new;</b>
+       <b>Supplier&lt;List&lt;String&gt;&gt; listOfString = List::new;</b>
 </pre>
 
 <h3>Stream API</h3>
