@@ -1,4 +1,4 @@
-package com.zeitgest.java8.features;
+package com.techinfinite.java8.features;
 
 import java.io.File;
 import java.io.FileFilter;

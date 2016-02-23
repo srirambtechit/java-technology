@@ -1,9 +1,10 @@
-package com.zeitgest.java8.features;
+package com.techinfinite.java8.features;
 
 public class Invoice {
 
     private int id;
     private double amount;
+    private Customer customer;
 
     public Invoice(int id, double amount) {
 	super();
@@ -25,6 +26,14 @@ public class Invoice {
 
     public void setAmount(double amount) {
 	this.amount = amount;
+    }
+
+    public Customer getCustomer() {
+	return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+	this.customer = customer;
     }
 
     @Override
