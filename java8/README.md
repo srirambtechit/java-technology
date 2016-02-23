@@ -56,7 +56,7 @@
        
      - A method reference to an instance method of an existing object
        example 1:
-       <b>Consumer<Object> print = System.out::println;</b>
+       <b> Consumer&lt;Object&gt; print = System.out::println;</b>
        
        example 2: to call private helper method inside a class
        <b>
