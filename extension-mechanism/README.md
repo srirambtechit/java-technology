@@ -38,8 +38,7 @@ Using Extension mechnanism, we can develop as below
 
 ### Run application
 * Run dictionary application
-
-```java
+```text
   $ java -cp dict-client/bin word.processor.DictionaryDemo
   Exception in thread "main" java.lang.NoClassDefFoundError: dictionary/DictionaryService
   	at word.processor.DictionaryDemo.main(DictionaryDemo.java:8)
@@ -53,33 +52,32 @@ Using Extension mechnanism, we can develop as below
 Note: Unable to load class since SPI should be loaded explicitly  
 
 * Run application with spi jar @ classpath
-
-```java
+```text
 $ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar word.processor.DictionaryDemo
-null
-null
+  null
+  null
 ```
 Note: Still values are not displayed, since provider implementation not yet loaded into JVM classloader
 
 * Run application with extended dictionary impl
-```java
+```text
 $ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar:lib/ext/ext-dictionary-1.0.jar word.processor.DictionaryDemo
-class name: dictionary.spi.impl.ExtendedDictionary
-def : null
-null
-class name: dictionary.spi.impl.ExtendedDictionary
-def : Extensible Markup Language
-Extensible Markup Language
+  class name: dictionary.spi.impl.ExtendedDictionary
+  def : null
+  null
+  class name: dictionary.spi.impl.ExtendedDictionary
+  def : Extensible Markup Language
+  Extensible Markup Language
 ```
 * Run application with generic dictionary impl
-```java
+```text
 $ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar:lib/gen/gen-dictionary-1.0.jar word.processor.DictionaryDemo
-class name: dictionary.spi.impl.GenericDictionary
-def : It is a object contains information about anything
-It is a object contains information about anything
-class name: dictionary.spi.impl.GenericDictionary
-def : null
-null
+  class name: dictionary.spi.impl.GenericDictionary
+  def : It is a object contains information about anything
+  It is a object contains information about anything
+  class name: dictionary.spi.impl.GenericDictionary
+  def : null
+  null
 ```
 
 
