@@ -38,7 +38,9 @@ Using Extension mechnanism, we can develop as below
 
 ### Run application
 * Run dictionary application
-  ```$ java -cp dict-client/bin word.processor.DictionaryDemo
+
+```java
+  $ java -cp dict-client/bin word.processor.DictionaryDemo
   Exception in thread "main" java.lang.NoClassDefFoundError: dictionary/DictionaryService
   	at word.processor.DictionaryDemo.main(DictionaryDemo.java:8)
 	Caused by: java.lang.ClassNotFoundException: dictionary.DictionaryService
@@ -47,18 +49,21 @@ Using Extension mechnanism, we can develop as below
 		at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
 		at java.lang.ClassLoader.loadClass(Unknown Source)
 		... 1 more
-  ```
-  Note: Unable to load class since SPI should be loaded explicitly
+```  
+Note: Unable to load class since SPI should be loaded explicitly  
 
 * Run application with spi jar @ classpath
-```$ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar word.processor.DictionaryDemo
+
+```java
+$ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar word.processor.DictionaryDemo
 null
 null
 ```
 Note: Still values are not displayed, since provider implementation not yet loaded into JVM classloader
 
 * Run application with extended dictionary impl
-```$ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar:lib/ext/ext-dictionary-1.0.jar word.processor.DictionaryDemo
+```java
+$ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar:lib/ext/ext-dictionary-1.0.jar word.processor.DictionaryDemo
 class name: dictionary.spi.impl.ExtendedDictionary
 def : null
 null
@@ -67,7 +72,8 @@ def : Extensible Markup Language
 Extensible Markup Language
 ```
 * Run application with generic dictionary impl
-```$ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar:lib/gen/gen-dictionary-1.0.jar word.processor.DictionaryDemo
+```java
+$ java -cp dict-client/bin:lib/dictionary-spi-1.0.jar:lib/gen/gen-dictionary-1.0.jar word.processor.DictionaryDemo
 class name: dictionary.spi.impl.GenericDictionary
 def : It is a object contains information about anything
 It is a object contains information about anything
