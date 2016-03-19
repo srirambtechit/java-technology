@@ -67,4 +67,11 @@
   to run in java 9 environment.
   $`jdeps --genmoduleinfo msrc lib/*`
   Note: above command generate module-info.java for all jar files
-  based on the depency resolved.
+  based on the dependencies resolved.
+
+* Finding transtive dependency of jar
+  $`jdeps -R -cp lib/* lib/jms-1.1.jar`
+  $`jdeps -s -R -cp lib/* lib/jms-1.1.jar`
+
+* Finding compile time jar needed for jar
+  $`jdeps -s -ct -cp lib/* lib/jms-1.1.jar`
