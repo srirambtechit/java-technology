@@ -2,6 +2,8 @@
 * It is concept since Java 1.3
 * Pluging functionality to existing application without restarting application
 * `java.util.ServiceLoader` is class used to achieve this
+* `-Djava.ext.dirs` JVM argument used for runtime
+* Permanently to keep particular library, /<java_path>/jre/lib/ext path used
 
 ## Example
 word processing software was developed in Java.
