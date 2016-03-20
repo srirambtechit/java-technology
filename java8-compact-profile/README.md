@@ -9,6 +9,7 @@ Compact profiles, introducted in Java SE 8, define subset of the Java SE
 platform API thtat can reduce the static size of Java runtime on devices
 that have limited storage capacity.
 
+
 ### Why we need compact profile?
 * JRE is core software for Java to lunch JVM
 * JRE consists of binaries, libararies, resources, system properties, etc.
@@ -24,6 +25,7 @@ profiles, which defines three subset of Java SE. but still, unable to cover all
 current and future needs of partial JREs.
 * Java 9 will address this problem in future by module system
 
+
 ### Overview
 * Resource-constrained devices can use profiles.
 * Three profiles
@@ -33,8 +35,8 @@ current and future needs of partial JREs.
 * javac compiler has **-profile** option to direct the usage of an API not present
 in profile.
 
-### API details
 
+### API details
 Profile | APIs
 --- | ---
 __compact1__ | core(java.lang), networking, date & time, logging, security, io, internationalization, extension mechanism, concurrency, zip, jndi, scripting, collection, regex, versioning, override mechanism, seiralization 
