@@ -40,5 +40,5 @@ Profile | APIs
 __compact1__ | core(java.lang), networking, date & time, logging, security, io, internationalization, extension mechanism, concurrency, zip, jndi, scripting, collection, regex, versioning, override mechanism, seiralization 
 __compact2__ | compact1, jdbc, xml, rmi
 **compact3** | compact2, security(kerberos, acl, sasl to compact1 security), JMX, XML JAXP, Management, Instrumentation
-**Full SE API** | compact2, beans, jni, jax-ws, preferences, accessibility, IDL, RMI-IIOP, CORBA, print service, sound, swing, Java 2D, AWT, darg & drop, input methods, Image IO
+**Full SE API** | beans, jni, jax-ws, preferences, accessibility, IDL, RMI-IIOP, CORBA, print service, sound, swing, Java 2D, AWT, darg & drop, input methods, Image IO
 
