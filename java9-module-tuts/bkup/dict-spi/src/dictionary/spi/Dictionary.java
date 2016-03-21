@@ -1,7 +1,8 @@
 package dictionary.spi;
 
 /**
- * {@link Dictionary} is a Service Provider Interface.
+ * {@link Dictionary} is a Service Provider Interface. This interface should
+ * have only one method.
  * 
  * @author sriram
  *
