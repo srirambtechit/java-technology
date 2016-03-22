@@ -10,6 +10,7 @@
 in module-info.java source file.
 
 3. Project structure
+<pre>
    1. dict-spi/
 	  └── src
    	      ├── dictionary
@@ -46,7 +47,7 @@ in module-info.java source file.
 	          └── processor
 	              └── DictionaryDemo.java
 
-
+</pre>
 4. Compiling source code & Packaging as JARs
    1. dict-spi project
    ```shell
