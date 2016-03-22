@@ -58,37 +58,39 @@ in module-info.java source file.
    ```
 
 5. Compiling source code & Running byte code
-   1. dict-spi project
+   * dict-spi project
    ```shell
    $ javac -d mods\dictionary.spi $(find dict-spi/src -name "*.java")
    ```
 
-   2. ext-dict-spi-impl project
+   * ext-dict-spi-impl project
    ```shell
    $ javac -mp mods -d mods/ext.dictionary.provider $(find ext-dict-spi-impl/src -name "*.java")
    ```
 
-   3. dict-client project
+   * dict-client project
    ```shell
    $ javac -mp mods -d mods/dictionary.client $(find dict-client/src -name "*.java")
    ```
 
-   4. Running application
+   * Running application
    ```shell
    $ java -mp mods -m dictionary.client/word.processor.DictionaryDemo
    ```
 
    __Note:__ Now we have generated extended version of Dictionary Provider for Dictionary SPI, It's
    time to generate Provider for general version of Dictionary
-   5. gen-dict-spi-impl project
+   
+   * gen-dict-spi-impl project
    ```shell
    $ javac -mp mods -d mods/gen.dictionary.provider $(find gen-dict-spi-impl/src -name "*.java")
    ```
-   4. Running application
+   * Running application
    ```shell
    $ java -mp mods -m dictionary.client/word.processor.DictionaryDemo
    ```
    **Oops**...
+   ```
    Error occurred during initialization of VM
    java.lang.reflect.LayerInstantiationException: Package dictionary.spi.impl in both module ext.dictionary.provider and module gen.dictionary.provider
     	at java.lang.reflect.Layer.fail(java.base@9-ea/Layer.java:439)
@@ -99,15 +101,16 @@ in module-info.java source file.
 	
 	because, two service provider impl modules were loaded and get conflicts, so better remove any one
 	of these modules from the -modulepath during launching JVM to avoid error.
+```
 
 6. Packaging as Modular JAR
-   1. creating JARs
+   * creating JARs
    ```shell
    $ jar --create --file=lib/dictionary-spi.jar --module-version=1.0 -C mods/dictionary.spi/ .
    $ jar --create --file=lib/ext-dictionary.jar --module-version=1.0 -C mods/ext.dictionary.spi/ .
    $ jar --create --file=lib/dictionary-main.jar --module-version=1.0 --main-class=word.processor.DictionaryDemo -C mods/dictionary.client/ .
    ```
-   2. Running JAR
+   * Running JAR
    ```shell
    $ java -mp lib -m dictionary.client
    ```
