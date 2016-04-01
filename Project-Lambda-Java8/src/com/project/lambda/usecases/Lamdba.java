@@ -13,11 +13,15 @@ public class Lamdba {
 	public static void main(String[] args) {
 		List<Student> students = StudentRepo.students();
 
-		// List<String> passedNames = findPassedStudent(students);
-		// System.out.println("Passed student names list: " + passedNames);
+		List<String> passedNames = findPassedStudent(students);
+		System.out.println("Passed student names list: " + passedNames);
 
-		// Map<Integer, String> map = failedStudent(students, 2004, 2010);
-		// System.out.println("Map: " + map);
+		System.out.println();
+
+		Map<Integer, String> map = failedStudent(students, 2004, 2010);
+		System.out.println("Map: " + map);
+
+		System.out.println();
 
 		List<String> names = namesStartsWith(students, "s");
 		System.out.println("Names starts with 'S' : " + names);
