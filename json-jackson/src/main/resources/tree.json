@@ -1,0 +1,8 @@
+{
+	"car" : {
+		"model" : 2016, 
+		"name" : "Lamborghini", 
+		"engineModel" : "4-Strok",
+		"features" : [ "fast", "reliable", "extra-mileage" ]
+	}	
+}
