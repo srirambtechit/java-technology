@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import com.msrm.lambda.db.StudentRepo;
 import com.msrm.lambda.pojo.Student;
 
-public class Lamdba {
+public class StudentLambda {
 
 	public static void main(String[] args) {
 		List<Student> students = StudentRepo.students();
