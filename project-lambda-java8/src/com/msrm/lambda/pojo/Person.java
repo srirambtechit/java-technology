@@ -51,6 +51,12 @@ public class Person {
 		return a.birthday.compareTo(b.birthday);
 	}
 
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", birthday=" + birthday + ", gender=" + gender
+				+ ", emailAddress=" + emailAddress + "]";
+	}
+
 	public static List<Person> createRoster() {
 
 		List<Person> roster = new ArrayList<>();
