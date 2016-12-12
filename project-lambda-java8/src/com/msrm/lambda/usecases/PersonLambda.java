@@ -36,9 +36,15 @@ public class PersonLambda {
 		
 		// display email address of a Person whose age is above 35
 		System.out.println("\nDisplay email address of a Person whose age is above 35");
-		Function<Person, String> function =  p -> { return p.getEmailAddress(); };
+		Function<Person, String> function =  (p) -> { return p.getEmailAddress(); };
 		Consumer<String> strConsumer = mail -> System.out.println(mail);
 		processPersonWithFunction(roster, predicate, function, strConsumer);
+		
+		System.out.println("\nDisplay email address of a Person whose age is above 35 - generics");
+		processPersonWithFunctionGenerics(roster, 
+				p -> p.getAge() > 30, 
+				p -> p.getEmailAddress(), 
+				System.out::println);
 		
 		System.out.println();
 		// old Java style
