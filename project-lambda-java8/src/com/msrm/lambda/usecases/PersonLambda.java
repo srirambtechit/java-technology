@@ -74,7 +74,49 @@ public class PersonLambda {
 			  .collect(Collectors.groupingBy(Person::getGender));
 		System.out.println(gender);
 		
-		kindOfMethodRef();
+		System.out.println("\nGet all male members");
+		List<String> names = roster.stream()
+			  .filter(p->p.getGender() == Person.Sex.MALE)
+			  .map(Person::getName)
+			  .collect(Collectors.toList());
+		names.forEach(System.out::println);
+		
+		System.out.println("\nSum of all members's age");
+		Integer sumOfAge1 = roster.stream()
+			  .map(Person::getAge)
+			  .reduce(0, (a, b) -> a + b);
+		System.out.println(sumOfAge1);
+		Integer sumOfAge2 = roster.stream()
+			  .collect(Collectors.summingInt(Person::getAge));
+		System.out.println(sumOfAge2);
+		
+		System.out.println("\nRetrieves the average age of members of each gender");
+		Map<Person.Sex, Double> averageAgeByGender = roster
+			    .stream()
+			    .collect(
+			        Collectors.groupingBy(
+			            Person::getGender,                      
+			            Collectors.averagingInt(Person::getAge)));
+		System.out.println(averageAgeByGender);
+		
+		System.out.println("\nGet mail address of each member in the collection roster and groups them by gender");
+		Map<Sex, List<String>> emailByGenderGroup = roster.stream()
+			  .collect(Collectors.groupingBy(Person::getGender, 
+					  Collectors.mapping(Person::getEmailAddress, Collectors.toList())));
+		System.out.println(emailByGenderGroup);
+		
+		System.out.println("\nRetrieves the total age of members of each gender");
+		Map<Sex, Integer> totalAgeByGender = roster.stream()
+			  .collect(Collectors.groupingBy(Person::getGender,
+					  Collectors.summingInt(Person::getAge)));
+		System.out.println(totalAgeByGender);
+		
+		Map<Sex, Integer> totalAgeByGender2 = roster.stream()
+			.collect(Collectors.groupingBy(Person::getGender, 
+					Collectors.reducing(0, Person::getAge, Integer::sum)));
+		System.out.println(totalAgeByGender2);
+		
+//		kindOfMethodRef();
 	}
 	
 	public static void processPerson(List<Person> roster, Predicate<Person> tester, Consumer<Person> block) {
