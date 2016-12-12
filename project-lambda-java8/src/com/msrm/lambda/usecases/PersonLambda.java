@@ -5,6 +5,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -17,6 +20,28 @@ public class PersonLambda {
 	//@formatter:off
 	public static void main(String[] args) {
 		List<Person> roster = Person.createRoster();
+		
+		Predicate<Person> predicate = p -> p.getAge() > 35;
+		Consumer<Person> consumer = p -> System.out.println(p);
+		// or
+//		Consumer<Person> consumer = System.out::println;
+		
+		// display Person whose age is above 35
+		System.out.println("\nDisplay Person whose age is above 35");
+		processPerson(roster, predicate, consumer);
+		
+		//above statement can be written as
+		System.out.println("\nDisplay Person whose age is above 25");
+		processPerson(roster, p->p.getAge() > 25, System.out::println);
+		
+		// display email address of a Person whose age is above 35
+		System.out.println("\nDisplay email address of a Person whose age is above 35");
+		Function<Person, String> function =  p -> { return p.getEmailAddress(); };
+		Consumer<String> strConsumer = mail -> System.out.println(mail);
+		processPersonWithFunction(roster, predicate, function, strConsumer);
+		
+		System.out.println();
+		// old Java style
 		for (Person person : roster) {
 			System.out.println(person);
 		}
@@ -44,6 +69,35 @@ public class PersonLambda {
 		System.out.println(gender);
 		
 		kindOfMethodRef();
+	}
+	
+	public static void processPerson(List<Person> roster, Predicate<Person> tester, Consumer<Person> block) {
+		for(Person p : roster) {
+			if(tester.test(p)) {
+				block.accept(p);
+			}
+		}
+	}
+	
+	public static void processPersonWithFunction(List<Person> roster, Predicate<Person> tester, 
+			Function<Person, String> mapper, Consumer<String> block) {
+		for(Person p : roster) {
+			if(tester.test(p)) {
+				String data = mapper.apply(p);
+				block.accept(data);
+			}
+		}
+	}
+	
+	// Above method rewritten for all type of data using Java Generics
+	public static <T, R> void processPersonWithFunctionGenerics(List<T> source, Predicate<T> tester,
+			Function<T, R> mapper, Consumer<R> block) {
+		for(T t : source) {
+			if(tester.test(t)) {
+				R data = mapper.apply(t);
+				block.accept(data);
+			}
+		}
 	}
 
 	
