@@ -17,10 +17,24 @@ public class StreamBuilder {
 		System.out.println();
 
 		// stream by array of primitive ints
-		Arrays.stream(new int[] { 3, 4, 8, 1, 2, 9, 5 } )
+		IntStream intStream = Arrays.stream(new int[] { 3, 4, 8, 1, 2, 9, 5 } )
 		      .forEach(i -> System.out.print(i + ", "));
 
+		// string to ints
+		IntStream chars = "sriram".chars();
+
+		// converting into collection like List<Integer>
+		List<Integer> intChars = chars.collect(Collectors.toList());
+
 		System.out.println();
+
+		List<Integer> list = Arrays.asList(3, 8, 9, 6, 4, 5);
+
+		// sequential stream
+		Stream<Integer> seqStream = list.stream(); 
+
+		// parallel stream
+		Stream<Integer> parallelStream = list.parallelStream(); 
 	
 	}
 
