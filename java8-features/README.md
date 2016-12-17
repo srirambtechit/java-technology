@@ -13,7 +13,11 @@ from the collection.
 example no lambda expression depends on any mutable variables or states from the outer scope which  
 might change during execution.  
 6. chain of stream operations is also known as operation pipeline.  
-7. Once terminal operation executed, stream is closed, attempting another terminal operation on 
-closed stream would cause IllegalStateException
-8. There are two type of iteration, internal and external iteration. Stream uses internal iteration
+7. Once terminal operation executed, stream is closed, attempting another terminal operation on  
+closed stream would cause IllegalStateException  
+8. There are two type of iteration, internal and external iteration. Stream uses internal iteration  
+9. Collect is an extremely useful terminal operation to transform the elements of the stream into a  
+different kind of result, e.g. a List, Set or Map.  
+10. Collect accepts a Collector which consists of four different operations: a _supplier_, an  
+_accumulator_, a _combiner_ and a _finisher_.  
 

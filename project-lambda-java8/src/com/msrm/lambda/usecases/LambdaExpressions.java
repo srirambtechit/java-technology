@@ -1,8 +1,6 @@
 package com.msrm.lambda.usecases;
 
 import java.util.Comparator;
-import java.util.function.Consumer;
-import java.util.stream.Stream;
 
 public class LambdaExpressions {
 
@@ -11,12 +9,16 @@ public class LambdaExpressions {
 	}
 
 	public static void main(String[] args) {
-		// Lambda expression - () -> { } 
-		Operation<Integer> add = (Integer a, Integer b) -> { return a + b; };
+		// Lambda expression - () -> { }
+		Operation<Integer> add = (Integer a, Integer b) -> {
+			return a + b;
+		};
 		System.out.println("Add : " + add.perform(3, 4));
-		
+
 		// Lambda expression - Automatically type inferred
-		Operation<Integer> sub = (a, b) -> { return a - b; };
+		Operation<Integer> sub = (a, b) -> {
+			return a - b;
+		};
 		System.out.println("Sub : " + sub.perform(3, 4));
 
 		// Lambda expression - if one statement no need of { }
@@ -31,7 +33,7 @@ public class LambdaExpressions {
 		Comparable<String> cmpbl = String::length;
 
 		Comparator<String> cmptr = (a, b) -> a.toUpperCase().compareTo(b.toLowerCase());
-		
+				
 	}
 
 }
