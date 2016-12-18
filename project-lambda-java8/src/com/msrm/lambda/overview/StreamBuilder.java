@@ -1,6 +1,12 @@
-import java.util.*;
-import java.util.stream.*;
+package com.msrm.lambda.overview;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+//@formatter:off
 public class StreamBuilder {
 
 	public static void main(String []args) {
@@ -17,14 +23,19 @@ public class StreamBuilder {
 		System.out.println();
 
 		// stream by array of primitive ints
-		IntStream intStream = Arrays.stream(new int[] { 3, 4, 8, 1, 2, 9, 5 } )
-		      .forEach(i -> System.out.print(i + ", "));
+		Arrays.stream(new int[] { 3, 4, 8, 1, 2, 9, 5 } )
+				.forEach(i -> {
+					System.out.print(i + ", "); 
+				});
 
 		// string to ints
 		IntStream chars = "sriram".chars();
 
 		// converting into collection like List<Integer>
-		List<Integer> intChars = chars.collect(Collectors.toList());
+		List<Object> nums = chars.collect(ArrayList::new, 
+				(list, i) -> list.add(i), 
+				(r1, r2) -> {});
+		System.out.println(nums);
 
 		System.out.println();
 
@@ -32,9 +43,11 @@ public class StreamBuilder {
 
 		// sequential stream
 		Stream<Integer> seqStream = list.stream(); 
+		System.out.println(seqStream);
 
 		// parallel stream
 		Stream<Integer> parallelStream = list.parallelStream(); 
+		System.out.println(parallelStream);
 	
 	}
 

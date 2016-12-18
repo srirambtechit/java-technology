@@ -8,6 +8,7 @@ public class LambdaExpressions {
 		public T perform(T t1, T t2);
 	}
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// Lambda expression - () -> { }
 		Operation<Integer> add = (Integer a, Integer b) -> {
